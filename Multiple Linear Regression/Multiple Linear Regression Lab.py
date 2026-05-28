@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from pandas.plotting import scatter_matrix
 from sklearn.preprocessing import StandardScaler
 from termcolor import colored
+from sklearn.metrics import mean_squared_error, r2_score
 
 
 #import dataset
@@ -61,9 +62,10 @@ print(y) #check dependent variable
 #standardize X to have mean = 0 and std = 1 for better performance of the model
 std_scaler = StandardScaler()
 X_std = std_scaler.fit_transform(X)
+y_std = std_scaler.fit_transform(y) #standardize y as well to have mean = 0 and std = 1 for better performance of the model
 
 #split dataset
-X_train, X_test, y_train, y_test = train_test_split(X_std, y, test_size=0.2, random_state=42) #split dataset into training and testing sets, 
+X_train, X_test, y_train, y_test = train_test_split(X_std, y_std, test_size=0.2, random_state=42) #split dataset into training and testing sets, 
 #test_size = 0.2 for 20% testing data, random_state = 42 for reproducibility
 
 regressor = LinearRegression() #create linear regression model
@@ -82,6 +84,7 @@ std_devs_ = np.sqrt(std_scaler.var_) #get standard deviations of the standardize
 # If X_test is 2D, select the first and second columns as X1 and X2; otherwise, handle as 1D.
 X1 = X_test[:, 0] if X_test.ndim > 1 else X_test
 X2 = X_test[:, 1] if X_test.ndim > 1 else np.zeros_like(X1) # If X_test is 1D, set X2 to an array of zeros with the same shape as X1
+print(X_test.shape)
 
 #we can write a for loop for this too:
 #X1 = []
@@ -166,3 +169,12 @@ plt.xlabel("FUELCONSUMPTION_COMB_MPG")
 plt.ylabel("Emission")
 plt.show() #how co2 emissions change with fuel consumption, while keeping engine size constant
 
+mse = mean_squared_error(y_test, y_pred) # squared difference between actual and predicted values of all data points, mse of 0 means perfect fit, higher mse means worse fit, and mse can be used to compare different models (lower mse is better) 
+r2 = r2_score(y_test, y_pred) # checks the proportion of the variance. an r2 score of 1 -> perfect fit, 0 -> no fit, negative -> worse than a horizontal line fit
+n = len(y_test) # gets all y values in the test set, which is used to calculate the adjusted R^2 score
+k = X_test.shape[1] # gets number of independdent variables (features) in the test set, which is used to calculate the adjusted R^2 score
+adj_r2 = 1 - ((1 - r2) * (n - 1) / (n - k - 1)) # Adjusted R^2 score is a modified version of R^2 that takes into account the number of independent variables in the model
+
+print("Mean Squared Error: ", mse)
+print("R^2 Score: ", r2)
+print("Adjusted R^2 Score: ", adj_r2) 
