@@ -58,7 +58,7 @@ encoded_features = encoder.fit_transform(df[categorical_columns])
 
 #new dataframe consisting of encoded categorical columns
 encoded_categorical_columns = pd.DataFrame(data=encoded_features, columns=encoder.get_feature_names_out(input_features=categorical_columns))
-encoded_df = pd.concat([df.drop(columns=categorical_columns),encoded_categorical_columns], axis=1)
+encoded_df = pd.concat([scaled_df.drop(columns=categorical_columns),encoded_categorical_columns], axis=1)
 
 #encoding target variable
 encoded_df['NObeyesdad'] = encoded_df['NObeyesdad'].astype('category').cat.codes
@@ -88,9 +88,10 @@ y_pred_ovo = model_ovo.predict(X_test)
 print("One v One Strategy")
 print(f"Accuracy: {np.round(100*accuracy_score(y_test,y_pred_ovo),2)}%")
 
-#as we can see, onevone performs better in this case with 84.87% accuracy score, whereas 73.05% for onevrest/onevall
+#as we can see, onevone performs better in this case with 92.2% accuracy score, whereas 76.12% for onevrest/onevall
 
 #bar chart of feature importance using the coefficients from the One vs All logistic regression model. Also try for the One vs One model
+print(model_ova.coef_) # --> coefficients for each class in the onevrest model, shape (n_classes, n_features)
 feature_importance_ova = np.mean(np.abs(model_ova.coef_),axis=0) # --> calculate mean absolute value of coefficients across all classes to get overall feature importance, returns an array with importance values for each feature which is 1d array with shape (n_features,)
 print(feature_importance_ova) # --> print feature importance values for onevall model
 plt.barh(X.columns, feature_importance_ova) #arguments: X.columns for y-axis labels, feature_importance_ova for bar lengths, horizontal bar chart
@@ -99,7 +100,8 @@ plt.xlabel("Importance")
 plt.show()
 
 # For One vs One model
-coefs = np.array([est.coef_ for est in model_ovo.estimators_]) # --> extract coefficients from each binary classifier and stack vertically
+print(model_ovo.estimators_) # --> list of binary classifiers for each pair of classes in the onevone model
+coefs = np.vstack([est.coef_ for est in model_ovo.estimators_]) # --> extract coefficients from each binary classifier and stack vertically
 feature_importance_ovo = np.mean(np.abs(coefs), axis=0) # --> calculate mean absolute value of coefficients across all classifiers
 feature_importance_ovo = feature_importance_ovo.flatten()  # Ensure shape matches number of features
 print(feature_importance_ovo) # --> print feature importance values for onevone model
@@ -107,3 +109,4 @@ plt.barh(X.columns, feature_importance_ovo)
 plt.title("Feature Importance (One v One)")
 plt.xlabel("Importance")
 plt.show()
+
