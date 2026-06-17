@@ -1,0 +1,1 @@
+Despite data cleaning and model tuning, the Decision Tree Regressor achieved a low R² score (~0.03), suggesting that the available features provide limited information for predicting tip amounts, with most predictive power coming from fare-related variables while many identifier-based features contributed little.
