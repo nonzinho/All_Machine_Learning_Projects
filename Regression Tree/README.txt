@@ -1,1 +1,3 @@
+The dataset includes information about taxi tip and was collected and provided to the NYC Taxi and Limousine Commission (TLC) by technology providers authorized under the Taxicab & Livery Passenger Enhancement Programs (TPEP/LPEP). The prediction of the tip amount can be modeled as a regression problem.
+
 Despite data cleaning and model tuning, the Decision Tree Regressor achieved a low R² score (~0.03), suggesting that the available features provide limited information for predicting tip amounts, with most predictive power coming from fare-related variables while many identifier-based features contributed little.
