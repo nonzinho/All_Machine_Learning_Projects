@@ -56,6 +56,7 @@ This repository documents my machine learning journey through hands-on projects,
 | Decision Tree Classifier   | Classification | ✅      |
 | Regression Tree            | Regression     | ✅      |
 | Multi-Class Classification | Classification | ✅      |
+| Support Vector Machines (SVMs) | Classification | 🔜      |
 
 ---
 
