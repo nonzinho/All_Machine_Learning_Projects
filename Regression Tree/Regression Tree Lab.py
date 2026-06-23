@@ -54,15 +54,7 @@ plt.show()
 # ----------------------------
 y = df['tip_amount']
 
-X = df.drop(columns=[
-    'tip_amount',
-    'VendorID',
-    'RatecodeID',
-    'payment_type',
-    'PULocationID',
-    'DOLocationID',
-    'store_and_fwd_flag'
-])
+X = df.drop(columns='tip_amount')
 
 # NOTE:
 # PULocationID, DOLocationID, payment_type,
