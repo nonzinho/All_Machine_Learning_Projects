@@ -56,7 +56,7 @@ This repository documents my machine learning journey through hands-on projects,
 | Decision Tree Classifier   | Classification | ✅      |
 | Regression Tree            | Regression     | ✅      |
 | Multi-Class Classification | Classification | ✅      |
-| Support Vector Machines (SVMs) | Classification | 🔜      |
+| Support Vector Machines (SVMs) | Classification | ✅      |
 
 ---
 
@@ -86,7 +86,7 @@ Explored One-vs-Rest (OvR) and One-vs-One (OvO) strategies using Logistic Regres
 
 ## 📊 Repository Statistics
 
-* 6 Machine Learning Projects
+* 7 Machine Learning Projects
 * Regression & Classification Algorithms
 * Scikit-Learn Implementations
 * Data Analysis & Visualization
