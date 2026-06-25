@@ -1,29 +1,60 @@
 # 👥 Customer Service Category Prediction using K-Nearest Neighbors (KNN)
 
-## 📌 Overview
-
-This project implements the K-Nearest Neighbors (KNN) classification algorithm to predict a customer's service subscription category based on demographic and customer-related attributes.
-
-The objective is to classify customers into one of four service categories while exploring how the number of nearest neighbors (**k**) affects model performance.
+Predicting customer service subscription categories using the **K-Nearest Neighbors (KNN)** classification algorithm implemented with **Scikit-Learn**.
 
 ---
 
-## 📊 Dataset
+# 📌 Project Overview
 
-The dataset contains customer demographic and service-related information, including:
+This project applies the **K-Nearest Neighbors (KNN)** algorithm to classify customers into one of four service subscription categories using demographic and customer-related information.
+
+The project demonstrates an end-to-end machine learning workflow, including:
+
+* 📊 Exploratory Data Analysis (EDA)
+* ⚙️ Data Preprocessing
+* 📏 Feature Standardization
+* 🤖 Model Training
+* 📈 Hyperparameter Tuning
+* 📊 Model Evaluation
+
+---
+
+# 📂 Repository Structure
+
+```text
+K-Nearest Neighbours
+│
+├── images/
+│   ├── Heatmap_KNN.png
+│   ├── BarH_KNN.png
+│   └── Plot_Accuracy_KNN.png
+│
+│
+├── Predict Service Category (KNN).py
+├── KNN-lab-v1.ipynb
+└── README.md
+```
+
+---
+
+# 📊 Dataset
+
+**Dataset:** teleCust1000t.csv
+
+The dataset contains customer demographic and service-related information including:
 
 * Region
 * Age
 * Marital Status
+* Address
 * Income
 * Education
 * Employment
-* Retire Status
+* Retirement Status
 * Gender
 * Residence
-* Additional customer attributes
 
-### Target Variable
+### 🎯 Target Variable
 
 ```text
 custcat
@@ -36,146 +67,180 @@ Customer service category:
 * Category 3 — Plus Service
 * Category 4 — Total Service
 
-The dataset is perfectly balanced, with **266 observations** for each class, reducing the likelihood of bias toward any single category.
+The dataset is perfectly balanced, containing **266 observations** for each class. This helps prevent the KNN classifier from favoring one customer category over another due to class imbalance.
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+# 🔄 Machine Learning Workflow
 
-Several exploratory analysis techniques were performed before model training:
+The workflow followed throughout this project:
 
-* Dataset inspection using `info()`
-* Summary statistics using `describe()`
-* Missing value analysis
-* Duplicate row analysis
-* Class distribution analysis
-* Correlation matrix visualization
-* Feature correlation analysis with the target variable
+```text
+Dataset
+   │
+   ▼
+Exploratory Data Analysis
+   │
+   ▼
+Data Preprocessing
+   │
+   ▼
+Feature Standardization
+(StandardScaler)
+   │
+   ▼
+Train-Test Split
+   │
+   ▼
+K-Nearest Neighbors
+   │
+   ▼
+Hyperparameter Tuning
+(k = 1 → 10)
+   │
+   ▼
+Model Evaluation
+```
 
 ---
 
-## ⚙️ Data Preprocessing
+# 🔍 Exploratory Data Analysis (EDA)
 
-### Feature Matrix
+## Correlation Matrix
 
-```python
-X = df.drop('custcat', axis=1)
-```
+<p align="center">
+    <img src="images/Heatmap_KNN.png" width="850">
+</p>
 
-### Target Variable
+The correlation matrix visualizes the Pearson correlation coefficients between numerical features.
 
-```python
-y = df['custcat']
-```
+### Observations
 
-### Feature Standardization
-
-Since KNN relies on distance calculations, all features were standardized using:
-
-```python
-StandardScaler()
-```
-
-Standardization transforms each feature to have:
-
-* Mean = 0
-* Standard Deviation = 1
-
-This prevents features with larger numerical ranges from dominating the Euclidean distance calculation.
-
-### Train-Test Split
-
-The dataset was divided into:
-
-* 80% Training Data
-* 20% Testing Data
-
-using `train_test_split()`.
+* Most feature pairs exhibit weak to moderate correlations.
+* Age and employment show moderate positive correlation.
+* Education has the strongest positive correlation with the target variable, although the relationship remains relatively weak.
+* No severe multicollinearity is present.
 
 ---
 
-## 🤖 K-Nearest Neighbors (KNN)
+## Feature Correlation with Target
 
-A KNN classifier was implemented using Scikit-Learn.
+<p align="center">
+    <img src="images/BarH_KNN.png" width="850">
+</p>
 
-### Initial Model
+This visualization ranks each feature according to its correlation with the customer service category.
+
+Education, tenure, income and employment display the strongest positive relationships with the target variable, whereas region exhibits a slight negative correlation.
+
+Overall, the relatively small correlation values indicate that no individual feature strongly predicts the target class.
+
+---
+
+# ⚙️ Data Preprocessing
+
+Before training the classifier:
+
+* Missing values were checked.
+* Duplicate observations were verified.
+* Input and target variables were separated.
+* All numerical features were standardized using **StandardScaler**.
+
+Feature standardization is essential because KNN relies on **Euclidean distance** when identifying the nearest neighbors. Scaling each feature to have zero mean and unit variance ensures that variables measured on larger numerical scales do not dominate the distance calculations.
+
+---
+
+# 🤖 K-Nearest Neighbors (KNN)
+
+KNN is a supervised, non-parametric, instance-based learning algorithm.
+
+Instead of learning a mathematical model during training, KNN stores the training observations. During prediction, the algorithm identifies the **k nearest neighbors** of a new sample and assigns the majority class among those neighbors.
+
+The initial model was trained using:
 
 ```python
 KNeighborsClassifier(n_neighbors=3)
 ```
 
-The algorithm predicts the class of a new customer by examining the **k nearest neighbors** in the feature space and assigning the majority class among those neighbors.
-
 ---
 
-## 🔧 Hyperparameter Tuning
+# 📈 Hyperparameter Tuning
 
-The number of neighbors (**k**) is one of the most important hyperparameters in KNN.
+## Selecting the Optimal Number of Neighbors
 
-To identify the optimal value, models were trained for:
+<p align="center">
+    <img src="images/Plot_Accuracy_KNN.png" width="850">
+</p>
+
+To determine the optimal value of **k**, multiple KNN classifiers were trained using:
 
 ```text
 k = 1 → 10
 ```
 
-For each value of **k**, the following were computed:
+For each model:
 
-* Classification Accuracy
-* Standard Error of Accuracy
+* Classification accuracy was calculated.
+* The standard error of the accuracy estimate was computed.
+* Results were visualized using an Accuracy vs. Number of Neighbors graph.
 
-The results were visualized using an Accuracy vs. Number of Neighbors plot.
+The green curve represents the measured classification accuracy, while the shaded blue region represents the **standard error**, illustrating the uncertainty associated with each measured accuracy.
 
-The shaded region around the accuracy curve represents the **standard error**, providing an estimate of the uncertainty associated with each measured accuracy.
-
----
-
-## 📈 Model Evaluation
-
-The model was evaluated using:
-
-### Accuracy Score
-
-Measures the proportion of correctly classified observations.
-
-```text
-Accuracy ≈ 0.36
-```
-
-The highest accuracy was obtained at approximately:
+The highest classification accuracy was achieved when:
 
 ```text
 k = 3
+Accuracy ≈ 36.5%
 ```
-
-Although this produced the best performance among the tested values, the overall classification accuracy remained relatively low.
 
 ---
 
-## 🧠 Key Concepts Demonstrated
+# 📊 Model Evaluation
+
+### Evaluation Metric
+
+* Accuracy Score
+
+### Best Performance
+
+| Metric    | Value       |
+| --------- | ----------- |
+| Optimal k | **3**       |
+| Accuracy  | **≈ 36.5%** |
+
+Although **k = 3** produced the highest prediction accuracy, the overall classification performance remained relatively low.
+
+---
+
+# ⚠️ Dataset Limitations
+
+Despite the perfectly balanced dataset, the classifier achieved only modest predictive performance.
+
+Possible reasons include:
+
+* Weak correlation between the available features and the target variable.
+* Significant overlap between customer categories.
+* Missing behavioral information such as purchasing habits, service usage history, customer preferences, and marketing interactions.
+
+Consequently, customers belonging to different service categories often appear similar in feature space, making accurate classification difficult for a distance-based algorithm such as KNN.
+
+---
+
+# 💡 Key Concepts Demonstrated
 
 * Supervised Learning
 * Multi-Class Classification
 * K-Nearest Neighbors (KNN)
 * Euclidean Distance
 * Feature Scaling
+* Standardization
 * Hyperparameter Tuning
 * Model Evaluation
-* Standard Error Visualization
 * Exploratory Data Analysis (EDA)
 
 ---
 
-## ⚠️ Dataset Limitations
-
-Although the dataset is perfectly balanced across all four service categories, the overall classification accuracy remained relatively low.
-
-This suggests that the available demographic and customer-related features may not sufficiently distinguish between the service categories. Many important factors influencing customer service selection, such as user preferences, purchasing behavior, historical service usage, or marketing exposure, are not included in the dataset.
-
-As a result, customers from different categories may appear similar in the feature space, making it difficult for the KNN algorithm to identify clear neighborhood boundaries.
-
----
-
-## 🛠️ Technologies Used
+# 🛠️ Technologies Used
 
 * Python
 * NumPy
@@ -187,30 +252,34 @@ As a result, customers from different categories may appear similar in the featu
 
 ---
 
-## 💡 What I Learned
+# 📚 What I Learned
 
-* How the K-Nearest Neighbors algorithm performs classification using distance-based learning.
-* Why feature standardization is essential for KNN models.
-* How changing the value of **k** affects model complexity and prediction performance.
-* How hyperparameter tuning can improve model performance.
-* How to interpret an Accuracy vs. Number of Neighbors graph.
-* The importance of evaluating model limitations when predictive performance is low.
+Through this project I learned:
+
+* How KNN performs classification using nearest-neighbor distance calculations.
+* Why feature scaling is essential for distance-based machine learning algorithms.
+* How different values of **k** influence model complexity and predictive performance.
+* How hyperparameter tuning can improve classification accuracy.
+* How to interpret feature correlation and exploratory data analysis.
+* How dataset characteristics directly influence machine learning performance.
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 Future Improvements
 
 Potential improvements include:
 
 * Cross-Validation for selecting the optimal **k**
 * Weighted KNN (`weights='distance'`)
-* Alternative distance metrics (Manhattan, Minkowski)
-* Feature Engineering
+* Alternative distance metrics (Manhattan and Minkowski)
 * Principal Component Analysis (PCA)
-* Comparison with Logistic Regression, Decision Trees, and Support Vector Machines
+* Feature Engineering
+* Comparison with Logistic Regression, Decision Trees, Random Forests, and Support Vector Machines
 
 ---
 
-## 📚 Learning Outcome
+# 📖 Conclusion
 
-This project demonstrates the implementation of the K-Nearest Neighbors algorithm for multi-class classification, emphasizing the importance of feature scaling, hyperparameter tuning, and model evaluation. It also highlights how dataset characteristics and feature quality directly influence the predictive performance of distance-based machine learning models.
+This project demonstrates the implementation of the **K-Nearest Neighbors (KNN)** algorithm for multi-class classification, covering the complete machine learning pipeline from exploratory data analysis to hyperparameter tuning and model evaluation.
+
+Although the final model achieved modest predictive performance, the project highlights the importance of feature quality, appropriate preprocessing, and systematic model evaluation when building machine learning solutions.
