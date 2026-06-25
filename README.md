@@ -56,7 +56,7 @@ This repository serves as a collection of machine learning projects completed th
 | Regression Tree              | Regression     | CART, Recursive Splitting           |
 | Multi-Class Classification   | Classification | One-vs-Rest (OvR), One-vs-One (OvO) |
 | Support Vector Machine (SVM) | Classification | Margin Maximization, ROC-AUC        |
-
+| K-Nearest Neighbours (K-NN) | Classification | Classifying features based on majority vote by neighbours        |
 ---
 
 ## 🌟 Featured Projects
@@ -125,6 +125,7 @@ Datasets are not included in this repository due to GitHub file size limitations
 | Multiple Linear Regression   | [FuelConsumptionCo2.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv) |
 | Regression Tree              | [yellow-tripdata.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/pu9kbeSaAtRZ7RxdJKX9_A/yellow-tripdata.csv)                                                      |
 | Support Vector Machine (SVM) | [creditcard.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/creditcard.csv)                 |
+| K-Nearest Neighbours | [teleCust1000t](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/teleCust1000t.csv)                 |
 
 > **Note:** Datasets are excluded from version control using `.gitignore` to keep the repository lightweight and avoid GitHub file size limitations.
 
@@ -141,6 +142,7 @@ Datasets are not included in this repository due to GitHub file size limitations
 * [x] Regression Tree
 * [x] Multi-Class Classification
 * [x] Support Vector Machine (SVM)
+* [x] K-Nearest Neighbours (K-NN) 
 
 ### Currently Learning
 
