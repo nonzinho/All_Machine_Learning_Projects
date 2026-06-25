@@ -1,43 +1,69 @@
 <h1 align="center">🧠 Machine Learning Portfolio</h1>
 
 <p align="center">
-Machine Learning projects built while studying Computer Engineering (Artificial Intelligence) at Sirindhorn International Institute of Technology (SIIT), Thammasat University.
+A collection of machine learning projects completed while studying <b>Computer Engineering (Artificial Intelligence)</b><br>
+at Sirindhorn International Institute of Technology (SIIT), Thammasat University.
 </p>
 
 <p align="center">
-Regression • Classification • Decision Trees • Support Vector Machines • Data Analysis
+Regression • Classification • Data Analysis • Model Evaluation • Scikit-Learn
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![Scikit Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge\&logo=scikit-learn\&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge\&logo=numpy\&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
+
 </p>
 
 ---
 
-## 👨‍💻 About Me
+# 👋 About
 
-Hello! I'm **Thanachat Kanthanon (Non)**, a Computer Engineering student specializing in Artificial Intelligence at SIIT.
+Hello! I'm **Thanachat Kanthanon (Non)**, a Computer Engineering student specializing in **Artificial Intelligence** at **SIIT, Thammasat University**.
 
-This repository serves as a collection of machine learning projects completed through coursework, self-study, and hands-on experimentation. My goal is to develop a strong foundation in Machine Learning, Data Science, and Artificial Intelligence while documenting my learning journey through practical implementations using Python and Scikit-Learn.
+This repository documents my journey in Machine Learning through coursework, self-study, and practical projects. Every project follows a complete machine learning workflow—from exploratory data analysis and preprocessing to model training, evaluation, and interpretation.
 
 ---
 
-## 🛠️ Technical Skills
+# 🚀 Portfolio Highlights
 
-### Programming
+* ✅ 8 Machine Learning Projects
+* ✅ Regression & Classification Algorithms
+* ✅ End-to-End Machine Learning Workflow
+* ✅ Exploratory Data Analysis (EDA)
+* ✅ Data Preprocessing & Feature Engineering
+* ✅ Hyperparameter Tuning
+* ✅ Model Evaluation & Interpretation
+* ✅ Built using Python & Scikit-Learn
+
+---
+
+# 🛠 Technical Skills
+
+## Programming
 
 * Python
 * Git & GitHub
 * Jupyter Notebook
 
-### Data Science
+## Data Science
 
 * NumPy
 * Pandas
 * Matplotlib
+* Seaborn
 
-### Machine Learning
+## Machine Learning
 
 * Regression Analysis
 * Classification
 * Decision Trees
-* Support Vector Machines (SVMs)
+* Support Vector Machines (SVM)
+* K-Nearest Neighbors (KNN)
 * Model Evaluation
 * Feature Engineering
 * Data Preprocessing
@@ -45,138 +71,140 @@ This repository serves as a collection of machine learning projects completed th
 
 ---
 
-## 📂 Projects
+# 📂 Projects
 
-| Project                      | Type           | Concepts                            |
-| ---------------------------- | -------------- | ----------------------------------- |
-| Simple Linear Regression     | Regression     | Linear Regression, MSE, R²          |
-| Multiple Linear Regression   | Regression     | Multiple Features, CO₂ Prediction   |
-| Logistic Regression          | Classification | Binary Classification, Log Loss     |
-| Decision Tree Classifier     | Classification | CART, Information Gain              |
-| Regression Tree              | Regression     | CART, Recursive Splitting           |
-| Multi-Class Classification   | Classification | One-vs-Rest (OvR), One-vs-One (OvO) |
-| Support Vector Machine (SVM) | Classification | Margin Maximization, ROC-AUC        |
-| K-Nearest Neighbours (K-NN) | Classification | Classifying features based on majority vote by neighbours        |
+| Project                      | Type           | Key Concepts                                               |
+| ---------------------------- | -------------- | ---------------------------------------------------------- |
+| Simple Linear Regression     | Regression     | Linear Regression, MSE, R²                                 |
+| Multiple Linear Regression   | Regression     | Multiple Regression, Feature Relationships                 |
+| Logistic Regression          | Classification | Binary Classification, Log Loss                            |
+| Decision Tree Classifier     | Classification | CART, Information Gain                                     |
+| Regression Tree              | Regression     | CART, Weighted MSE                                         |
+| Multi-Class Classification   | Classification | One-vs-Rest (OvR), One-vs-One (OvO)                        |
+| Support Vector Machine (SVM) | Classification | Margin Maximization, ROC-AUC                               |
+| K-Nearest Neighbors (KNN)    | Classification | Euclidean Distance, Majority Voting, Hyperparameter Tuning |
+
 ---
 
-## 🌟 Featured Projects
+# 🌟 Featured Projects
 
-### 🌍 Multiple Linear Regression
+## 🌍 Multiple Linear Regression
 
-Predicted vehicle CO₂ emissions using engine characteristics and fuel consumption features with Scikit-Learn's Linear Regression model.
+Predicted vehicle CO₂ emissions using engine size and fuel consumption while evaluating regression performance with MSE and R².
 
-### 🌳 Regression Tree
+---
 
-Built a CART Regression Tree model to predict taxi tip amounts and evaluated performance using:
+## 🌳 Regression Tree
 
+Implemented a CART Regression Tree to predict taxi tip amounts.
+
+Topics explored:
+
+* Recursive Binary Splitting
+* Weighted Mean Squared Error
+* Feature Importance
 * R² Score
 * Mean Squared Error (MSE)
 * Root Mean Squared Error (RMSE)
 
-Key concepts explored:
+---
 
-* Recursive Binary Splitting
-* Weighted Mean Squared Error
-* Feature Importance Analysis
+## 💳 Support Vector Machine (SVM)
 
-### 💳 Support Vector Machine (SVM)
+Developed a Linear Support Vector Classifier for fraud detection on a highly imbalanced dataset.
 
-Implemented a Linear Support Vector Classifier for credit card fraud detection on a highly imbalanced dataset.
+Topics explored:
 
-Key concepts explored:
-
-* Margin Maximization
+* Maximum Margin Hyperplane
 * Class Weighting
-* ROC-AUC Evaluation
 * Decision Functions
-
-### 🌱 Decision Tree Classifier
-
-Implemented a Decision Tree Classifier and analyzed decision boundaries and feature importance for interpretable machine learning.
+* ROC-AUC Evaluation
 
 ---
 
-## 📈 Portfolio Highlights
+## 👥 K-Nearest Neighbors (KNN)
 
-✅ 7 Completed Machine Learning Projects
+Built a multi-class customer classification model using distance-based learning.
 
-✅ Regression & Classification Models
+Topics explored:
 
-✅ End-to-End Data Analysis Workflow
-
-✅ Data Cleaning & Preprocessing
-
-✅ Model Evaluation & Interpretation
-
-✅ Built Using Python & Scikit-Learn
+* Euclidean Distance
+* Feature Standardization
+* Hyperparameter Tuning
+* Accuracy Evaluation
 
 ---
 
-## 📊 Datasets
+# 📊 Datasets
 
-Datasets are not included in this repository due to GitHub file size limitations. The original datasets can be downloaded from the sources below.
+Datasets are **not included** in this repository due to GitHub file size limitations.
 
 | Project                      | Dataset                                                                                                                                                                                   |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Decision Tree Classifier     | [drug200.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/drug200.csv)                       |
 | Logistic Regression          | [ChurnData.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/ChurnData.csv)                   |
-| Multi-Class Classification   | [Obesity-level-prediction-dataset.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/GkDzb7bWrtvGXdPOfk6CIg/Obesity-level-prediction-dataset.csv)                    |
+| Multi-Class Classification   | [Obesity Level Prediction Dataset](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/GkDzb7bWrtvGXdPOfk6CIg/Obesity-level-prediction-dataset.csv)                        |
 | Simple Linear Regression     | [FuelConsumptionCo2.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv) |
 | Multiple Linear Regression   | [FuelConsumptionCo2.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv) |
 | Regression Tree              | [yellow-tripdata.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/pu9kbeSaAtRZ7RxdJKX9_A/yellow-tripdata.csv)                                                      |
 | Support Vector Machine (SVM) | [creditcard.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/creditcard.csv)                 |
-| K-Nearest Neighbours | [teleCust1000t](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/teleCust1000t.csv)                 |
+| K-Nearest Neighbors (KNN)    | [teleCust1000t.csv](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/teleCust1000t.csv)           |
 
-> **Note:** Datasets are excluded from version control using `.gitignore` to keep the repository lightweight and avoid GitHub file size limitations.
-
----
-
-## 🗺️ Learning Roadmap
-
-### Completed
-
-* [x] Simple Linear Regression
-* [x] Multiple Linear Regression
-* [x] Logistic Regression
-* [x] Decision Tree Classifier
-* [x] Regression Tree
-* [x] Multi-Class Classification
-* [x] Support Vector Machine (SVM)
-* [x] K-Nearest Neighbours (K-NN) 
-
-### Currently Learning
-
-* [ ] Random Forests
-* [ ] Ensemble Learning
-* [ ] Gradient Boosting
-* [ ] XGBoost
-* [ ] Neural Networks
-* [ ] Deep Learning
+> **Note:** Datasets are excluded using `.gitignore` to keep the repository lightweight while allowing projects to be reproduced from the original sources.
 
 ---
 
-## 🚀 Upcoming Projects
+# 📈 Learning Roadmap
+
+## ✅ Completed
+
+* Simple Linear Regression
+* Multiple Linear Regression
+* Logistic Regression
+* Decision Tree Classifier
+* Regression Tree
+* Multi-Class Classification
+* Support Vector Machine (SVM)
+* K-Nearest Neighbors (KNN)
+
+## 🚧 Currently Learning
+
+* Random Forests
+* Ensemble Learning
+* Gradient Boosting
+* XGBoost
+* Neural Networks
+* Deep Learning
+
+---
+
+# 🎯 Future Projects
 
 * Energy Consumption Prediction
 * Air Pollution Prediction
 * Cardiovascular Disease Detection
 * Random Forest Classification
-* Gradient Boosting Models
-* Deep Learning Applications
+* Gradient Boosting
+* XGBoost
+* Neural Networks
+* Deep Learning
+* Computer Vision
+* Natural Language Processing
 
 ---
 
-## 🎓 Academic Background
+# 🎓 Academic Background
 
 **Sirindhorn International Institute of Technology (SIIT)**
-Thammasat University
+**Thammasat University**
 
 Bachelor of Engineering (Computer Engineering)
-Specialization: Artificial Intelligence
+
+Specialization: **Artificial Intelligence**
 
 ---
 
-## 📫 Contact
+# 📫 Contact
 
 * GitHub: https://github.com/nonzinho
 * Email: [6822781611@g.siit.tu.ac.th](mailto:6822781611@g.siit.tu.ac.th)
@@ -184,5 +212,7 @@ Specialization: Artificial Intelligence
 ---
 
 <p align="center">
-⭐ Thank you for visiting my Machine Learning Portfolio.
+
+⭐ Thanks for visiting my Machine Learning Portfolio!
+
 </p>
