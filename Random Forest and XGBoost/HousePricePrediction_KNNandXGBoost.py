@@ -145,7 +145,6 @@ plt.ylim(0,6)
 plt.title("Random Forest Predictions vs Actual")
 plt.legend()
 
-plt.figure(figsize=(14,6))
 plt.subplot(1,2,2)
 plt.scatter(y_test, y_pred_xgb, alpha=0.5, color='blue', ec='k')
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=2, label='Perfect Model')
