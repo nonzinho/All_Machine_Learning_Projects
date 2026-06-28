@@ -78,7 +78,7 @@ The following analyses were performed:
 
 ## Feature Correlation with Target
 
-![Feature Correlation](Random%20Forest%20and%20XGBoost/images/feature_correlation_bar.png)
+![Feature Correlation](./images/feature_correlation_bar.png)
 
 This visualization illustrates the Pearson correlation coefficient between each feature and the target variable.
 
@@ -93,7 +93,7 @@ This visualization illustrates the Pearson correlation coefficient between each 
 
 ## Correlation Heatmap
 
-![Correlation Heatmap](Random%20Forest%20and%20XGBoost/images/correlation_heatmap.png)
+![Correlation Heatmap](./images/correlation_heatmap.png)
 
 The correlation heatmap provides insight into relationships among all numerical features.
 
@@ -175,7 +175,7 @@ Both models were evaluated using:
 
 # 📊 Model Predictions
 
-![Prediction Comparison](Random%20Forest%20and%20XGBoost/images/model_predictions.png)
+![Prediction Comparison](./images/model_predictions.png)
 
 The scatter plots compare predicted house prices against the true values.
 
