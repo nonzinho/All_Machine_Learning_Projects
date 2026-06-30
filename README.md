@@ -75,14 +75,15 @@ This repository documents my journey in Machine Learning through coursework, sel
 
 | Project                      | Type           | Key Concepts                                               |
 | ---------------------------- | -------------- | ---------------------------------------------------------- |
-| Simple Linear Regression     | Regression     | Linear Regression, MSE, R²                                 |
-| Multiple Linear Regression   | Regression     | Multiple Regression, Feature Relationships                 |
-| Logistic Regression          | Classification | Binary Classification, Log Loss                            |
-| Decision Tree Classifier     | Classification | CART, Information Gain                                     |
-| Regression Tree              | Regression     | CART, Weighted MSE                                         |
-| Multi-Class Classification   | Classification | One-vs-Rest (OvR), One-vs-One (OvO)                        |
-| Support Vector Machine (SVM) | Classification | Margin Maximization, ROC-AUC                               |
-| K-Nearest Neighbors (KNN)    | Classification | Euclidean Distance, Majority Voting, Hyperparameter Tuning |
+| Simple Linear Regression     | Regression: Supervised    | Linear Regression, MSE, R²                                 |
+| Multiple Linear Regression   | Regression: Supervised     | Multiple Regression, Feature Relationships                 |
+| Logistic Regression          | Classification: Supervised | Binary Classification, Log Loss                            |
+| Decision Tree Classifier     | Classification: Supervised | CART, Information Gain                                     |
+| Regression Tree              | Regression: Supervised     | CART, Weighted MSE                                         |
+| Multi-Class Classification   | Classification: Supervised | One-vs-Rest (OvR), One-vs-One (OvO)                        |
+| Support Vector Machine (SVM) | Classification: Supervised | Margin Maximization, ROC-AUC                               |
+| K-Nearest Neighbors (KNN)    | Classification: Supervised | Euclidean Distance, Majority Voting, Hyperparameter Tuning |
+| Random Forest and XGBoost    | Classification: Supervised | Bootstrap Aggregating, Feature Randomization, Additive Training and Boosting |
 
 ---
 
@@ -169,10 +170,8 @@ Datasets are **not included** in this repository due to GitHub file size limitat
 
 ## 🚧 Currently Learning
 
-* Random Forests
-* Ensemble Learning
-* Gradient Boosting
-* XGBoost
+* K-Means Clustering
+* DBSCAN Algorithm
 * Neural Networks
 * Deep Learning
 
