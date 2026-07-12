@@ -40,7 +40,7 @@ with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
 # ----- Write a Function That Plots Clustered Locations and Overlays Them On A Base Map -----
 def plot_clustered_locations(df, title="Museums Clustered by Proximity"):
     # --> df : Dataframe containing parameters latitude, longtitude, and cluster columns, title (str) : Title of the plot.
-    gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df['Longtitude'], df['Latitude'], crs='EPSG:4326')) # --> Transform data into geographical coordinate reference system (standard is epsg:4326)
+    gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df['Longitude'], df['Latitude'], crs='EPSG:4326')) # --> Transform data into geographical coordinate reference system (standard is epsg:4326)
     gdf = gdf.to_crs(epsg=3857) 
     # --> 1) Transform normal Pandas Dataframe into a geographical coordinate reference system (EPSG:4326) : Define a position in the 3D sphere (Latitude, Longtitude).
     # --> 2) Project the position in the 3D sphere into 2D coordinates X and Y (EPSG=3857).
@@ -89,6 +89,30 @@ df = df[df['Latitude'] != '..']
 df = df[df['Longitude'] != '..']
 df[['Latitude', 'Longitude']] = df[['Latitude', 'Longitude']].astype('float')
 
+# ----- Build DBSCAN Model -----
+coords_scaled = df.copy() # --> Since latitude has a range of +/- 90 degrees and longitude ranges from 0 to 360 degrees, the correct scaling is to double the longitude coordinates (or half the Latitudes)
+coords_scaled['Latitude'] = 2*coords_scaled['Latitude']
 
+# ----- Params -----
+min_samples = 3
+eps = 1.0
+metric = 'euclidean'
+dbscan = DBSCAN(min_samples=min_samples, eps=eps, metric=metric)
 
+# ----- Add Cluster Feature Back To DataFrame -----
+df['Cluster'] = dbscan.fit_predict(coords_scaled)
+print(df['Cluster'].value_counts())
+
+# ----- Plot Data -----
+plot_clustered_locations(df, title="Museums Clustered by Proximity")
+
+# ----- Initialize HDBSCAN Model -----
+min_samples = None
+min_cluster_size = 8
+hdb = hdbscan.HDBSCAN(min_samples=min_samples, min_cluster_size=min_cluster_size, metric=metric)
+df['Cluster'] = hdb.fit_predict(coords_scaled)
+print(df['Cluster'].value_counts())
+
+# ----- Plot HDBSCAN Data -----
+plot_clustered_locations(df, title="Museums Hierarchally Clustered by Proximity")
 
