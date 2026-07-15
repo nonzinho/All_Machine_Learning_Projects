@@ -49,8 +49,8 @@ def plot_clustered_locations(df, title="Museums Clustered by Proximity"):
     fig, ax = plt.subplots(figsize=(15, 10))
     
     # ----- Separate noise, non-noise from the data and plot clusters -----
-    non_noise = gdf[gdf['Cluster'] != 1]
-    noise = gdf[gdf['Cluster'] == 1]
+    non_noise = gdf[gdf['Cluster'] != -1]
+    noise = gdf[gdf['Cluster'] == -1]
     noise.plot(ax=ax, color='k', markersize=20, ec='r', alpha=1, label='Noise')
     non_noise.plot(ax=ax, column='Cluster', cmap='tab10', markersize=30, ec='k', legend=False, alpha=0.5)
 
